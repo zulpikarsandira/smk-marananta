@@ -1,0 +1,30 @@
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Web Framework (High Performance, Modular)
+axum = { version = "0.7", features = ["multipart"] }
+tower-http = { version = "0.5", features = ["cors", "trace"] }
+
+# Async Runtime
+tokio = { version = "1.0", features = ["full"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Database (Postgres Driver for performant direct connection)
+# We handle connection logic, even if initially we might mock or use HTTP if pass is missing.
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "uuid", "chrono"] }
+
+# Utilities
+dotenvy = "0.15"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["serde", "v4"] }
+
+# HTTP Client (If we need to call other Supabase APIs like Auth/Storage)
+reqwest = { version = "0.11", features = ["json", "multipart", "rustls-tls", "stream"] }

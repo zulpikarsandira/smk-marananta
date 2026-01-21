@@ -1,0 +1,39 @@
+{
+    "students": [
+        {
+            "nama": "Ahmad Fauzi",
+            "nilai_raport": 85.5,
+            "jarak_zonasi_km": 2.5,
+            "umur_bulan": 180,
+            "jalur_pendaftaran": "ZONASI"
+        },
+        {
+            "nama": "Siti Nurhaliza",
+            "nilai_raport": 92.0,
+            "jarak_zonasi_km": 1.2,
+            "umur_bulan": 178,
+            "jalur_pendaftaran": "ZONASI"
+        },
+        {
+            "nama": "Budi Santoso",
+            "nilai_raport": 88.0,
+            "jarak_zonasi_km": 5.0,
+            "umur_bulan": 182,
+            "jalur_pendaftaran": "ZONASI"
+        },
+        {
+            "nama": "Dewi Lestari",
+            "nilai_raport": 95.0,
+            "jarak_zonasi_km": 0.0,
+            "umur_bulan": 175,
+            "jalur_pendaftaran": "PRESTASI"
+        },
+        {
+            "nama": "Eko Prasetyo",
+            "nilai_raport": 78.0,
+            "jarak_zonasi_km": 8.0,
+            "umur_bulan": 185,
+            "jalur_pendaftaran": "ZONASI"
+        }
+    ]
+}

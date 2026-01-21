@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-outfit);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* Custom Utilities for Modern Minimalist */
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-xl shadow-zinc-200/50;
+}
+
+.clip-path-pixel-tail {
+  clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 100%);
+  /* For a more blocky pixel look, let's use a stepped one */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 33%, 66% 33%, 66% 66%, 33% 66%, 33% 100%, 0% 100%);
+}
+
+.bg-emerald-hero {
+  background: linear-gradient(to bottom, #0ea5e9 0%, #38bdf8 100%);
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, #0ea5e9 0%, #38bdf8 100%);
+  background-size: 10% 100%, 100% 100%;
+}
+
+.hero-fog {
+  background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 1) 100%);
+}
+
+.nav-tabs {
+  display: flex;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  padding: 4px;
+  border-radius: 99px;
+  border: 1px border rgba(255, 255, 255, 0.2);
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 16px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.nav-glider {
+  position: absolute;
+  height: 36px;
+  background-color: #eff6ff;
+  z-index: 1;
+  border-radius: 99px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  font-size: 8px;
+  border-radius: 50%;
+  background-color: #dbeafe;
+  color: #1e40af;
+  margin-left: 6px;
+  font-weight: 900;
+}
+
+.active .nav-notification {
+  background-color: #1d4ed8;
+  color: #fff;
+}
+
+.bento-card {
+  @apply relative p-8 rounded-[32px] bg-white border border-zinc-100 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-zinc-200/50 hover:-translate-y-1 overflow-hidden;
+}
+
+.heading-xl {
+  @apply font-heading font-black tracking-tighter leading-[0.9] text-zinc-950;
+}
+
+.text-subtle {
+  @apply text-zinc-500 font-medium leading-relaxed;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-zinc-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-200 rounded-full hover:bg-zinc-300 transition-colors;
+}
