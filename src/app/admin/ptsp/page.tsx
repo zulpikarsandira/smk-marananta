@@ -52,12 +52,12 @@ export default function AdminPTSPPage() {
         try {
             const res = await ptspService.getAdminRequests();
             if (res.success) {
-                const currentData = res.data;
-                const currentIds = new Set(currentData.map((item: PtspSubmission) => item.id));
+                const currentData = res.data as PtspSubmission[];
+                const currentIds = new Set<string>(currentData.map((item) => item.id));
 
                 // Notification Logic for Polling
                 if (!isFirstLoad.current) {
-                    const newItems = currentData.filter((item: PtspSubmission) => !previousIds.current.has(item.id));
+                    const newItems = currentData.filter((item) => !previousIds.current.has(item.id));
 
                     newItems.forEach((item: PtspSubmission) => {
                         console.log("🔔 New Item Detected via Polling:", item);
