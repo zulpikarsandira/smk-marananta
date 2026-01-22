@@ -1,5 +1,5 @@
 # 1. Build Stage
-FROM rust:1.75-slim-bookworm as builder
+FROM rust:latest as builder
 
 WORKDIR /usr/src/app
 COPY . .
@@ -21,8 +21,9 @@ WORKDIR /app
 # Copy binary dari stage builder
 COPY --from=builder /usr/src/app/target/release/backend ./server
 
-# Expose port (Harus sesuai dengan yang dipakai di main.rs, biasanya 8080)
-EXPOSE 8080
+# Expose port (Hugging Face Spaces wajib pakai port 7860)
+ENV PORT=7860
+EXPOSE 7860
 
 # Jalankan server
 CMD ["./server"]

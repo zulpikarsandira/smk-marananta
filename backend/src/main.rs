@@ -63,7 +63,14 @@ async fn main() {
         .layer(cors)
         .with_state(shared_state);
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], 8080));
+    // Use PORT env var or default to 8080
+    let port = std::env::var("PORT")
+        .unwrap_or_else(|_| "8080".to_string())
+        .parse()
+        .expect("PORT must be a number");
+
+    // Bind to 0.0.0.0 to allow external access (required for Docker/Render)
+    let addr = SocketAddr::from(([0, 0, 0, 0], port));
     println!("🚀 Rust Backend running on http://{}", addr);
 
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();

@@ -43,7 +43,7 @@ export default function AdminPTSPPage() {
     );
 
     // Refs for polling comparison
-    const previousIds = React.useRef<Set<string>>(new Set());
+    const previousIds = React.useRef<Set<string>>(new Set<string>());
     const isFirstLoad = React.useRef(true);
     const audioCtxRef = React.useRef<AudioContext | null>(null);
 
